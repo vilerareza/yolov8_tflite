@@ -9,7 +9,7 @@ import gc
 from tqdm import tqdm
 
 '''Video path'''
-video_path = 'videos/2.mp4'
+video_path = 'videos/1.avi'
 
 '''Detection model'''
 # Path to tflite model
@@ -74,6 +74,7 @@ class YoloV8Detector:
 
             ret, frame_ori = cap.read()
 
+            # BGR to RGB
             frame_ori = frame_ori[:,:,::-1]
 
             if ret:
