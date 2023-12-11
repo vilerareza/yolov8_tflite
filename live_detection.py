@@ -10,9 +10,9 @@ from ultralytics.utils.checks import check_yaml
 
 '''Detection model'''
 # Path to tflite model
-model_path = 'models/yolov8_int8.tflite'
+model_path = 'models/yolov8n_int8_def.tflite'
 # Model input size
-input_size = (416, 416)
+input_size = (640, 640)
 
 '''Detection score threshold'''
 score_thres = 0.2
