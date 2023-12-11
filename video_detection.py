@@ -140,6 +140,22 @@ class YoloV8Detector:
                 x, y, w, h = outputs[i][0], outputs[i][1], outputs[i][2], outputs[i][3]
                 # Calculate the scaled coordinates of the bounding box
                 x = (x+128)/255 ; y = (y+128)/255 ; w = (w+128)/255  ; h = (h+128)/255 
+                if x<0:
+                    x=0
+                elif x>1:
+                    x=1
+                if y<0:
+                    y=0
+                elif y>1:
+                    y=1
+                if w<0:
+                    w=0
+                elif w>1:
+                    w=1
+                if h<0:
+                    h=0
+                elif h>1:
+                    h=1
                 left = int((x - w / 2) * image.shape[1])
                 top = int((y - h / 2) * image.shape[0])
                 width = int(w * image.shape[1])
