@@ -74,12 +74,12 @@ class YoloV8Detector:
 
             ret, frame_ori = cap.read()
 
-            # BGR to RGB
-            #frame_ori = frame_ori[:,:,::-1]
+            
 
             if ret:
                 frame = frame_ori.copy()
-
+                # BGR to RGB
+                frame = frame[:,:,::-1]
                 ''' Preprocess '''
                 # Resize the frame to match the model input size
                 frame = cv.resize(frame, input_size)
@@ -94,7 +94,7 @@ class YoloV8Detector:
                 output = self.detector.get_tensor(self.detector_output[0]['index'])            
                 frame_ori = self.postprocess(frame_ori, output, score_thres, iou_thres)
 
-                frame_ori = frame_ori[:,:,::-1]
+                #frame_ori = frame_ori[:,:,::-1]
 
                 writer.write(frame_ori)
 
@@ -145,23 +145,23 @@ class YoloV8Detector:
                 width = int(w * image.shape[1])
                 height = int(h * image.shape[0])
 
-                if left<0:
-                    left=0
-                elif left>image.shape[1]:
-                    left=image.shape[1]
-                if top<0:
-                    top=0
-                elif top>image.shape[0]:
-                    top=image.shape[0]
-                if width<0:
-                    width=0
-                elif width>image.shape[1]:
-                    width=image.shape[1]
-                if height<0:
-                    height=0
-                elif height>image.shape[0]:
-                    height=image.shape[0]
-                print (left, top, width, height)
+                # if left<0:
+                #     left=0
+                # elif left>image.shape[1]:
+                #     left=image.shape[1]
+                # if top<0:
+                #     top=0
+                # elif top>image.shape[0]:
+                #     top=image.shape[0]
+                # if width<0:
+                #     width=0
+                # elif width>image.shape[1]:
+                #     width=image.shape[1]
+                # if height<0:
+                #     height=0
+                # elif height>image.shape[0]:
+                #     height=image.shape[0]
+                # print (left, top, width, height)
                 # Add the class ID, score, and box coordinates to the respective lists
                 class_ids.append(class_id)
                 scores.append(max_score)
