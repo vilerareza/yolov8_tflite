@@ -21,7 +21,7 @@ labelmap_path = 'labelmap.txt'
 '''Camera type and orientation'''
 res = (640, 480)
 is_picamera = True
-flip = True
+flip = False
 
 
 def start_live_detection(cam, 
