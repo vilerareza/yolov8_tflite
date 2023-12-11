@@ -64,7 +64,7 @@ def start_live_detection(cam,
             # Convert BGR to RGB
             # frame = frame[:,:,::-1]
             # Resize the frame to match the model input size
-            frame = cv.resize(frame, input_size).astype('uint8')
+            frame = cv.resize(frame, input_size)# .astype('uint8')
             frame = np.expand_dims(frame, axis=0)
 
             # ''' Run object detection '''
