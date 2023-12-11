@@ -27,10 +27,10 @@ flip = True
 def start_live_detection(cam, 
                          model_path,
                          input_size,
-                    score_thres,
-                    labelmap_path, 
-                    is_picamera=True, 
-                    flip=False):
+                         score_thres,
+                         labelmap_path, 
+                         is_picamera=True, 
+                         flip=False):
     
     # Creating detector
     detector = create_detector(model_path)  
@@ -90,7 +90,7 @@ def start_live_detection(cam,
             #                         color='rgb',
             #                         model_type='efficientdet')
         
-            # frame_ori = frame_ori[:,:,::-1]
+            frame_ori = frame_ori[:,:,::-1]
 
             # Display the resulting frame
             cv.imshow('frame', frame_ori)
