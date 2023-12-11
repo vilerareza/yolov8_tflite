@@ -70,6 +70,8 @@ def start_live_detection(cam,
             #print (frame.shape)
             frame = np.expand_dims(frame, axis=0)
 
+            print ('max', np.max(frame), 'min', np.min(frame))
+
             # ''' Run object detection '''
             detector.set_tensor(detector_input['index'], frame)
             detector.invoke()
@@ -88,7 +90,7 @@ def start_live_detection(cam,
                     print (classes_scores)
                     # print ('BOX', box)
                     # print ('SCORE', np.max(classes_scores))
-            #print ('no object')
+            print ('no object')
             # print (classes_scores)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
