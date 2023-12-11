@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 from picamera2 import Picamera2
 import tflite_runtime.interpreter as tflite
-from utils import visualize, create_label_dict
+# from utils import visualize, create_label_dict
 import time
 
 
