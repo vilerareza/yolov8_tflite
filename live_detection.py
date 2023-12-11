@@ -79,53 +79,53 @@ class YoloV8Detector:
     
         while(True):
 
-            try:
-                t1 = time.time()
+            #try:
+            t1 = time.time()
 
-                '''Capture'''
-                # picamera
-                frame_ori = self.cam.capture_array()
+            '''Capture'''
+            # picamera
+            frame_ori = self.cam.capture_array()
 
-                # Flip
-                if flip:
-                    frame_ori = cv.rotate(frame_ori, cv.ROTATE_180)
+            # Flip
+            if flip:
+                frame_ori = cv.rotate(frame_ori, cv.ROTATE_180)
 
-                frame = frame_ori.copy()
+            frame = frame_ori.copy()
 
-                ''' Preprocess '''
-                # Convert BGR to RGB
-                # Resize the frame to match the model input size
-                frame = cv.resize(frame, input_size).astype('int8')
-                frame = cv.normalize(frame, None, -128, 127, cv.NORM_MINMAX, dtype=cv.CV_8S)
-                frame = np.expand_dims(frame, axis=0)
+            ''' Preprocess '''
+            # Convert BGR to RGB
+            # Resize the frame to match the model input size
+            frame = cv.resize(frame, input_size).astype('int8')
+            frame = cv.normalize(frame, None, -128, 127, cv.NORM_MINMAX, dtype=cv.CV_8S)
+            frame = np.expand_dims(frame, axis=0)
 
-                # ''' Run object detection '''
-                self.detector.set_tensor(self.detector_input['index'], frame)
-                self.detector.invoke()
-                
-                # Output handling
-                output = self.detector.get_tensor(self.detector_output[0]['index'])
-                
-                frame_ori = self.postprocess(frame_ori, output, score_thres, iou_thres)
+            # ''' Run object detection '''
+            self.detector.set_tensor(self.detector_input['index'], frame)
+            self.detector.invoke()
+            
+            # Output handling
+            output = self.detector.get_tensor(self.detector_output[0]['index'])
+            
+            frame_ori = self.postprocess(frame_ori, output, score_thres, iou_thres)
 
-                #frame = frame[0]
-                frame_ori = frame_ori[:,:,::-1]
+            #frame = frame[0]
+            frame_ori = frame_ori[:,:,::-1]
 
-                # Display the resulting frame
-                cv.imshow('frame', frame_ori)
+            # Display the resulting frame
+            cv.imshow('frame', frame_ori)
 
-                # the 'q' button is set as the
-                if cv.waitKey(1) & 0xFF == ord('q'):
-                    break
-
-                t2 = time.time()
-                #print (f'frame_time: {t2-t1}')
-
-            except Exception as e:
-                print (e)
-                # On error, release the camera object
-                self.cam.stop()
+            # the 'q' button is set as the
+            if cv.waitKey(1) & 0xFF == ord('q'):
                 break
+
+            t2 = time.time()
+            #print (f'frame_time: {t2-t1}')
+
+            # except Exception as e:
+            #     print (e)
+            #     # On error, release the camera object
+            #     self.cam.stop()
+            #     break
 
         # Destroy all the windows
         cv.destroyAllWindows()
