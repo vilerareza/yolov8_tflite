@@ -191,6 +191,7 @@ class YoloV8Detector:
         # Retrieve the color for the class ID
         color = self.color_palette[class_id]
         # Draw the bounding box on the image
+        print (image.shape)
         cv.rectangle(image, (int(x1), int(y1)), (int(x1 + w), int(y1 + h)), color, 2)
         # Create the label text with class name and score
         label = f'{self.classes[class_id]}: {score:.2f}'
