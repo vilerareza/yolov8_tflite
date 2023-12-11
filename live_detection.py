@@ -21,7 +21,7 @@ labelmap_path = 'labelmap.txt'
 '''Camera type and orientation'''
 res = (640, 480)
 is_picamera = True
-flip = False
+flip = True
 
 
 def start_live_detection(cam, 
@@ -137,5 +137,5 @@ if __name__ == '__main__':
                          input_size, 
                          det_score_thres, 
                          labelmap_path,
-                         flip)
+                         flip=flip)
     print ('end')
