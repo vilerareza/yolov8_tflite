@@ -80,7 +80,7 @@ def start_live_detection(cam,
             print (outputs.shape)
             # rows = outputs.shape[0]
             # print (rows)
-            classes_scores = outputs[0][:10]
+            classes_scores = outputs[0][:4]
             print (classes_scores)
             # print (classes_scores)
             # Detected objects class ID
