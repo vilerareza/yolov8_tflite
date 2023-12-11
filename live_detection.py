@@ -66,6 +66,7 @@ def start_live_detection(cam,
             # Resize the frame to match the model input size
             frame = cv.resize(frame, input_size).astype('int8')
             frame = np.transpose(frame, (2, 0, 1)) 
+            print (frame.shape)
             frame = np.expand_dims(frame, axis=0)
 
             # ''' Run object detection '''
