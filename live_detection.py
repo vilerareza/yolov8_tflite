@@ -10,7 +10,7 @@ import time
 # Path to tflite model
 model_path = 'models/yolov8_int8.tflite'
 # Model input size
-input_size = (640, 640)
+input_size = (416, 416)
 
 '''Detection score threshold'''
 det_score_thres = 0.6
