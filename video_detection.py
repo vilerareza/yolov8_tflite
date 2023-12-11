@@ -92,7 +92,7 @@ class YoloV8Detector:
 
                 frame_ori = frame_ori[:,:,::-1]
 
-                writer.write(frame_ori)
+                # writer.write(frame_ori)
 
                 del frame_ori
                 gc.collect()
@@ -140,7 +140,6 @@ class YoloV8Detector:
                 top = int((y - h / 2) * image.shape[0])
                 width = int(w * image.shape[1])
                 height = int(h * image.shape[0])
-                print (left, top, width, height)
                 # Add the class ID, score, and box coordinates to the respective lists
                 class_ids.append(class_id)
                 scores.append(max_score)
