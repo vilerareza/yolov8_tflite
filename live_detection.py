@@ -15,7 +15,7 @@ model_path = 'models/yolov8n_int8_def.tflite'
 input_size = (640, 640)
 
 '''Detection score threshold'''
-score_thres = 0.5
+score_thres = 0.2
 iou_thres = 0.5
 
 '''Path to id to label file'''
@@ -145,8 +145,8 @@ class YoloV8Detector:
         class_ids = []
 
         # Calculate the scaling factors for the bounding box coordinates
-        x_factor = self.camera_res[0] / self.input_size[0]
-        y_factor = self.camera_res[1] / self.input_size[1]
+        x_factor = self.camera_res[1] / self.input_size[0]
+        y_factor = self.camera_res[0] / self.input_size[1]
 
         # Iterate over each row in the outputs array
         for i in range(rows):
