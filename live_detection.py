@@ -8,7 +8,7 @@ import time
 
 '''Detection model'''
 # Path to tflite model
-model_path = 'models_tflite/retinanet_resnet_fpn_640_unfreeze.tflite'
+model_path = 'models/yolov8_int8.tflite'
 # Model input size
 input_size = (640, 640)
 
