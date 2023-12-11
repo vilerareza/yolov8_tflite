@@ -70,7 +70,7 @@ class YoloV8Detector:
 
         # Frame processing and writing the result to temp file
         # for idx, frame_ori in tqdm(enumerate(video_gen)):
-        for i in tqdm(1500):
+        for i in tqdm(range(1500)):
 
             ret, frame_ori = cap.read()
             print (ret)
