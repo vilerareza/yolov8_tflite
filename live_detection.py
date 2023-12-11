@@ -212,6 +212,7 @@ class YoloV8Detector:
                       cv.FILLED)
         # Draw the label text on the image
         cv.putText(image, label, (label_x, label_y), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1, cv.LINE_AA)
+        return image
 
 
 if __name__ == '__main__':
