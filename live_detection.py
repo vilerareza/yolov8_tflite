@@ -97,7 +97,7 @@ class YoloV8Detector:
             # Resize the frame to match the model input size
             frame = cv.resize(frame, input_size).astype('int8')
             frame = cv.normalize(frame, None, -128, 127, cv.NORM_MINMAX, dtype=cv.CV_8S)
-            frame = np.expand_dims(frame, axis=0)
+            #frame = np.expand_dims(frame, axis=0)
 
             # ''' Run object detection '''
             self.detector.set_tensor(self.detector_input['index'], frame)
