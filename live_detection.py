@@ -80,7 +80,7 @@ def start_live_detection(cam,
             print (outputs.shape)
             # rows = outputs.shape[0]
             # print (rows)
-            box = outputs[0][4:]
+            box = outputs[0][:4]
             classes_scores = outputs[0][4:]
             print ('BOX', box)
             print ('SCORE', classes_scores)
