@@ -43,11 +43,12 @@ class YoloV8Detector:
         self.cam = Picamera2()
         config = self.cam.create_preview_configuration(main={"size": camera_res, "format": "BGR888"})
         self.cam.configure(config)
-
+        
+        self.classes = yaml_load(check_yaml('coco128.yaml'))['names']
         # Color Palette
         self.color_palette = np.random.uniform(0, 255, size=(len(self.classes), 3))
 
-        self.classes = yaml_load(check_yaml('coco128.yaml'))['names']
+        
 
 
     def create_detector(self, model_path):
