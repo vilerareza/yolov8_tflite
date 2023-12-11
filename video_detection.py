@@ -94,7 +94,7 @@ class YoloV8Detector:
 
                 frame_ori = frame_ori[:,:,::-1]
 
-                # writer.write(frame_ori)
+                writer.write(frame_ori)
 
                 del frame_ori
                 gc.collect()
