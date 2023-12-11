@@ -73,8 +73,10 @@ def start_live_detection(cam,
             # Bounding boxes coordinates
             # output = detector_output[1]# ['index']
             # print (output)
-            bboxes = detector.get_tensor(detector_output[0]['index'])
-            print (bboxes)
+            outputs = detector.get_tensor(detector_output[0]['index'])
+            outputs = np.transpose(np.squeeze(outputs[0]))
+            # rows = outputs.shape[0]
+            print (outputs)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
             # Detection scores
