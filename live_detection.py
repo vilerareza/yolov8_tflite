@@ -76,7 +76,7 @@ def start_live_detection(cam,
             # output = detector_output[1]# ['index']
             # print (output)
             outputs = detector.get_tensor(detector_output[0]['index'])
-            #print (outputs[0].shape)
+            print (outputs.shape)
             # outputs = np.transpose(np.squeeze(outputs[0]))
             # rows = outputs.shape[0]
             # print (rows)
