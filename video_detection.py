@@ -72,6 +72,7 @@ class YoloV8Detector:
         while True:
 
             ret, frame_ori = cap.read()
+            print (ret)
 
             if ret:
                 frame = frame_ori.copy()
