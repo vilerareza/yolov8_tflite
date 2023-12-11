@@ -175,6 +175,7 @@ class YoloV8Detector:
                 top = int((y - h / 2) * self.camera_res[1])
                 width = int(w * self.camera_res[0])
                 height = int(h * self.camera_res[1])
+                print (left, top, width, height)
                 # Add the class ID, score, and box coordinates to the respective lists
                 class_ids.append(class_id)
                 scores.append(max_score)
