@@ -54,6 +54,7 @@ class YoloV8Detector:
         # fps
         cap = cv.VideoCapture(video_path)
         fps = math.ceil(cap.get(cv.CAP_PROP_FPS))
+        n_frame = math.ceil(cap.get(cv.CAP_PROP_FRAME_COUNT))
         # w x h
         ret, test_frame = cap.read(0)
         video_w = test_frame.shape[1]
@@ -69,7 +70,7 @@ class YoloV8Detector:
 
         # Frame processing and writing the result to temp file
         # for idx, frame_ori in tqdm(enumerate(video_gen)):
-        while True:
+        for i in tqdm(range(n_frame)):
 
             ret, frame_ori = cap.read()
             print (ret)
