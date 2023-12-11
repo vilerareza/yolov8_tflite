@@ -9,7 +9,7 @@ import gc
 from tqdm import tqdm
 
 '''Video path'''
-video_path = 'videos/1.avi'
+video_path = 'videos/2.mp4'
 
 '''Detection model'''
 # Path to tflite model
