@@ -62,7 +62,6 @@ class YoloV8Detector:
     def start_live_detection(self, 
                              score_thres,
                              iou_thres,
-                             labelmap_path, 
                              flip=False):
         
         # Creating detector
