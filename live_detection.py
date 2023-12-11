@@ -83,7 +83,7 @@ def start_live_detection(cam,
             box = outputs[0][:4]
             classes_scores = outputs[0][4:]
             print ('BOX', box)
-            print ('SCORE', classes_scores)
+            print ('SCORE', max(classes_scores))
             # print (classes_scores)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
