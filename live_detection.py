@@ -72,7 +72,7 @@ def start_live_detection(cam,
             detector.invoke()
             # Bounding boxes coordinates
             output = detector_output[0]
-            print (output)
+            print (output[0])
             #bboxes = detector.get_tensor(detector_output[1]['index'])[0]
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
