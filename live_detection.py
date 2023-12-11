@@ -8,7 +8,7 @@ import time
 
 '''Detection model'''
 # Path to tflite model
-model_path = 'models/yolov8_int8.tflite'
+model_path = 'models/yolov8n_int8_def.tflite'
 # Model input size
 input_size = (416, 416)
 
