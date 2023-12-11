@@ -15,7 +15,7 @@ model_path = 'models/yolov8n_int8_def.tflite'
 input_size = (640, 640)
 
 '''Detection score threshold'''
-score_thres = 0.2
+score_thres = 0.5
 iou_thres = 0.5
 
 '''Path to id to label file'''
