@@ -106,11 +106,11 @@ class YoloV8Detector:
                 # Output handling
                 output = self.detector.get_tensor(self.detector_output[0]['index'])
                 
+                frame = frame[:,:,::-1]
                 frame = self.postprocess(frame, output, score_thres, iou_thres)
 
-                print (frame.shape, frame.dtype)
-                frame_ori = frame_ori[:,:,::-1]
-
+                frame = frame[0]
+                #frame_ori = frame_ori[:,:,::-1]
 
                 # Display the resulting frame
                 cv.imshow('frame', frame_ori)
