@@ -79,12 +79,16 @@ def start_live_detection(cam,
             outputs = detector.get_tensor(detector_output[0]['index'])
             outputs = np.transpose(np.squeeze(outputs[0]))
             print (outputs.shape)
-            # rows = outputs.shape[0]
+            rows = outputs.shape[0]
             # print (rows)
-            box = outputs[0][:4]
-            classes_scores = outputs[0][4:]
-            print ('BOX', box)
-            print ('SCORE', max(classes_scores))
+            for i in range (rows):
+                box = outputs[i][:4]
+                classes_scores = np.max(outputs[0][4:])
+                if classes_scores != -128:
+                    print (classes_scores)
+                    # print ('BOX', box)
+                    # print ('SCORE', np.max(classes_scores))
+            print ('no object')
             # print (classes_scores)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
