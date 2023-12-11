@@ -85,7 +85,7 @@ class YoloV8Detector:
             '''Capture'''
             # picamera
             frame_ori = self.cam.capture_array()
-            frame_ori = cv.resize(frame_ori, input_size).astype('int8')
+            frame_ori = cv.resize(frame_ori, input_size)
 
             # Flip
             if flip:
