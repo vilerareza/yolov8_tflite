@@ -100,6 +100,8 @@ class YoloV8Detector:
             #frame = frame[:,:,::-1]
             frame = np.expand_dims(frame, axis=0)
 
+            print (frame.max(), frame.min())
+
             # ''' Run object detection '''
             self.detector.set_tensor(self.detector_input['index'], frame)
             self.detector.invoke()
