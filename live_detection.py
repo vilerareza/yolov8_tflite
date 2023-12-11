@@ -113,7 +113,7 @@ class YoloV8Detector:
                 #frame_ori = frame_ori[:,:,::-1]
 
                 # Display the resulting frame
-                cv.imshow('frame', frame_ori)
+                cv.imshow('frame', frame)
 
                 # the 'q' button is set as the
                 if cv.waitKey(1) & 0xFF == ord('q'):
