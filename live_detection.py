@@ -85,7 +85,7 @@ def start_live_detection(cam,
             # print (rows)
             for i in range (rows):
                 box = outputs[i][:4]
-                classes_scores = np.max(outputs[0][4:])
+                classes_scores = np.max(outputs[i][4:])
                 if classes_scores != -128:
                     print (classes_scores)
                     # print ('BOX', box)
