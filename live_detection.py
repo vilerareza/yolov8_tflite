@@ -76,11 +76,12 @@ def start_live_detection(cam,
             # output = detector_output[1]# ['index']
             # print (output)
             outputs = detector.get_tensor(detector_output[0]['index'])
-            print (outputs[0].shape)
+            #print (outputs[0].shape)
             # outputs = np.transpose(np.squeeze(outputs[0]))
             # rows = outputs.shape[0]
             # print (rows)
-            # classes_scores = outputs[0][4:]
+            classes_scores = outputs[0][:10]
+            print (classes_scores)
             # print (classes_scores)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
