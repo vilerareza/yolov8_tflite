@@ -75,7 +75,8 @@ def start_live_detection(cam,
             # Bounding boxes coordinates
             # output = detector_output[1]# ['index']
             # print (output)
-            outputs = detector.get_tensor(detector_output[1]['index'])
+            outputs = detector.get_tensor(detector_output[0]['index'])
+            print (len(outputs))
             # outputs = np.transpose(np.squeeze(outputs[0]))
             # rows = outputs.shape[0]
             # print (rows)
