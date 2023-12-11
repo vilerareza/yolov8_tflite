@@ -55,9 +55,9 @@ class YoloV8Detector:
         cap = cv.VideoCapture(video_path)
         fps = math.ceil(cap.get(cv.CAP_PROP_FPS))
         # w x h
-        metadata = ffprobe(video_path)
-        video_w = int(metadata['video']['@width'])
-        video_h = int(metadata['video']['@height'])
+        ret, test_frame = cap.read(0)
+        video_w = test_frame.shape[1]
+        video_h = test_frame.shape[0]
 
         # # Writer object
         writer = cv.VideoWriter('output.avi', cv.VideoWriter_fourcc(*'MJPG'), fps, (video_w, video_h)) 
