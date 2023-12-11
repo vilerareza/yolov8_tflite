@@ -77,6 +77,8 @@ def start_live_detection(cam,
             outputs = np.transpose(np.squeeze(outputs[0]))
             rows = outputs.shape[0]
             print (rows)
+            classes_scores = outputs[0][4:]
+            print (classes_scores)
             # Detected objects class ID
             #class_ids = detector.get_tensor(detector_output[3]['index'])[0]
             # Detection scores
