@@ -11,7 +11,7 @@ model_path = 'models/yolov8_int8.tflite'
 
 # Show input output details
 interpreter = tflite.Interpreter(model_path)
-input_type = interpreter.get_input_details()[0]['dtype']
+input_type = interpreter.get_input_details()[0]
 print('input: ', input_type)
 output_type = interpreter.get_output_details()
 print('output: ', output_type)
