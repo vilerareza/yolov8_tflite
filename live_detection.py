@@ -85,7 +85,7 @@ class YoloV8Detector:
             '''Capture'''
             # picamera
             frame_ori = self.cam.capture_array()
-            frame_ori = cv.resize(frame_ori, input_size)
+            # frame_ori = cv.resize(frame_ori, input_size)
 
             # Flip
             if flip:
@@ -97,7 +97,7 @@ class YoloV8Detector:
             # Convert BGR to RGB
             # Resize the frame to match the model input size
             frame = cv.resize(frame, input_size).astype('int8')
-            frame = cv.normalize(frame, None, 0, 127, cv.NORM_MINMAX, dtype=cv.CV_8S)
+            frame = cv.normalize(frame, None, -128, 127, cv.NORM_MINMAX, dtype=cv.CV_8S)
             frame = np.expand_dims(frame, axis=0)
 
             # ''' Run object detection '''
@@ -167,10 +167,14 @@ class YoloV8Detector:
                 # Extract the bounding box coordinates from the current row
                 x, y, w, h = outputs[i][0], outputs[i][1], outputs[i][2], outputs[i][3]
                 # Calculate the scaled coordinates of the bounding box
-                left = int((x - w / 2) * x_factor)
-                top = int((y - h / 2) * y_factor)
-                width = int(w * x_factor)
-                height = int(h * y_factor)
+                # left = int((x - w / 2) * x_factor)
+                # top = int((y - h / 2) * y_factor)
+                # width = int(w * x_factor)
+                # height = int(h * y_factor)
+                left = int((x - w / 2) * self.camera_res[0])
+                top = int((y - h / 2) * self.camera_res[1])
+                width = int(w * self.camera_res[0])
+                height = int(h * self.camera_res[0])
                 # Add the class ID, score, and box coordinates to the respective lists
                 class_ids.append(class_id)
                 scores.append(max_score)
