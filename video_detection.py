@@ -18,8 +18,8 @@ model_path = 'models/yolov8n_int8_def.tflite'
 input_size = (640, 640)
 
 '''Detection score threshold'''
-score_thres = 0.3
-iou_thres = 0.3
+score_thres = 0.35
+iou_thres = 0.35
 
 
 class YoloV8Detector:
@@ -70,11 +70,12 @@ class YoloV8Detector:
 
         # Frame processing and writing the result to temp file
         # for idx, frame_ori in tqdm(enumerate(video_gen)):
-        for i in tqdm(range(500)):
+        for i in tqdm(range(n_frame)):
+            
+            if i%3 != 0:
+                continue
 
             ret, frame_ori = cap.read()
-
-            
 
             if ret:
                 frame = frame_ori.copy()
